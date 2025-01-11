@@ -15,10 +15,19 @@ class ImageFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
-        $imagePath = $this->faker->image('public/storage/posts', 640, 480, null, false);
+{
+    // $imagePath = $this->faker->image('public/storage/posts', 640, 480, null, false);
+
+    // dd($imagePath); // Se imprime la ruta de la imagen en la consola
+
+    $faker = \Faker\Factory::create();
+    $faker->addProvider(new \Mmo\Faker\PicsumProvider($faker));
+    $faker->addProvider(new \Mmo\Faker\LoremSpaceProvider($faker));
+
+
     return [
-        'url' => $imagePath ? 'posts/' . $imagePath : 'posts/default.png',
+        'url' => 'posts/' . $faker->picsum('public/storage/posts', 640, 480, false),
     ];
-    }
+}
+
 }

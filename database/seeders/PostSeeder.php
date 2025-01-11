@@ -15,7 +15,7 @@ class PostSeeder extends Seeder
      */
     public function run(): void
     {
-        $post = \App\Models\Post::factory(20)->create();
+        $post = \App\Models\Post::factory(100)->create();
 
         $post->each(function ($post) {
             Image::factory(1)->create([
@@ -26,9 +26,6 @@ class PostSeeder extends Seeder
            // Etiquetas
             $tags = Tag::inRandomOrder()->take(4)->get(); // Tomar 4 etiquetas al azar de la tabla tags y guardarlas en la variable tags 
             $post->tags()->attach($tags);
-
-
-
 
 
         });
