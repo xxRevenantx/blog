@@ -1,0 +1,42 @@
+<x-app-layout>
+    <div class="container py-8">
+   
+    <div class="py-8">
+        <h1 class=" uppercase text-center text-3xl font-bold text-gray-600">ETIQUETAS: {{ $tag->name }}</h1>
+    </div>
+    <div class="grid grid-cols-1 gap-6">
+
+        @foreach ($posts as $post)
+
+            
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <a href="{{ route("posts.show", $post) }}">
+                <article style="background-image: url({{ Storage::url($post->image->url) }})" class="w-full h-80 bg-cover bg-center col-span-1 ">
+                </article>
+             </a>
+                            
+            <div class="px-6 py-4 ">
+                <h1 class="text-4xl text-gray-6 leading-8 font-bold mb-4"><a href="{{ route("posts.show", $post) }}">{{ $post->name }}</a></h1>
+                    <div class="flex justify-between items-center">
+                    
+                 </div>
+
+                 <div class="text-gray-600 text-base">
+                    {{ $post->extract }}
+
+                 </div>
+            </div>
+      
+            </article>
+
+
+        </div>
+        @endforeach
+
+        <div class="mt-4">
+            {{ $posts->links() }}
+        </div>
+    </div>
+
+    </div>
+</x-app-layout>
