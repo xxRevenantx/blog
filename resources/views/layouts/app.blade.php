@@ -13,6 +13,8 @@
 
         <script src="https://kit.fontawesome.com/ec45f2c6d1.js" crossorigin="anonymous"></script>
 
+        
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 

@@ -11,7 +11,7 @@
             
             <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <a href="{{ route("posts.show", $post) }}">
-                <article style="background-image: url({{ Storage::url($post->image->url) }})" class="w-full h-80 bg-cover bg-center col-span-1 ">
+                <article style="background-image: url(@if ($post->image)  {{ Storage::url($post->image->url) }} @else https://cdn.pixabay.com/photo/2023/12/12/15/36/sea-8445435_960_720.jpg  @endif)" class="w-full h-80 bg-cover bg-center col-span-1 ">
                 </article>
              </a>
                             
